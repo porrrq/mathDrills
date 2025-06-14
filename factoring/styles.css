@@ -1,0 +1,50 @@
+body {
+    font-family: "Noto Sans", sans-serif;
+    margin-top: 100px;
+}
+.page {
+    place-items: center;            
+}
+
+.page:not(:first-of-type) {
+    /* display: none; */
+}
+
+#formAlertMsg {
+    /* display: none; */
+    padding-left: 50px;
+}
+
+.respondMsg {
+    /* display: none; */
+}
+
+.answerContainer {
+    padding: 50px;
+}
+
+.answerInp {
+    display: inline;
+    width: 50px;
+}
+
+#showTime {
+    color: #808080;
+
+}
+
+#problemText {
+    margin: 50px;
+    font-size: 4.5rem !important;
+    padding: 50px !important;
+}
+
+.answerContainer * {
+    font-size: 2rem !important;
+}
+
+#leaveButton {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+}

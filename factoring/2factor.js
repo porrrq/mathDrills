@@ -11,6 +11,7 @@ let probType
 let timeLimit
 let totalProblem
 let solved
+
 const benfordProbabilities = [
     0,                // index 0 
     0.301,            // 1
@@ -24,48 +25,48 @@ const benfordProbabilities = [
     0.046             // 9
   ];
 
-function showResult () {
-    // Hide `progressContainer`
-    progressContainer.style.display = "none" 
-    // Show `resultContainer`
-    resultContainer.style.display = "block"
-    document.getElementById("timeUsed").innerText = timeLimit
-    document.getElementById("totalProblem").innerText = totalProblem
-    document.getElementById("solved").innerText = solved
-    document.getElementById("miss").innerText = totalProblem - solved
-    document.getElementById("accuracy").innerText = solved / totalProblem
-    if (probType) {
-        document.getElementById("probType").innerText = "Benford's Law"
-    }
-    else {
-        document.getElementById("probType").innerText = "Uniform"
-    }
-}
+// function showResult () {
+//     // Hide `progressContainer`
+//     progressContainer.style.display = "none" 
+//     // Show `resultContainer`
+//     resultContainer.style.display = "block"
+//     document.getElementById("timeUsed").innerText = timeLimit
+//     document.getElementById("totalProblem").innerText = totalProblem
+//     document.getElementById("solved").innerText = solved
+//     document.getElementById("miss").innerText = totalProblem - solved
+//     document.getElementById("accuracy").innerText = solved / totalProblem
+//     if (probType) {
+//         document.getElementById("probType").innerText = "Benford's Law"
+//     }
+//     else {
+//         document.getElementById("probType").innerText = "Uniform"
+//     }
+// }
 
-startButton.addEventListener("click", () => {
-    // Assign a timeLimit to its valuable
-    timeLimit = timeLimitElement.value
-    console.log(`Time limit: ${timeLimit} minutes`)
+// startButton.addEventListener("click", () => {
+//     // Assign a timeLimit to its valuable
+//     timeLimit = timeLimitElement.value
+//     console.log(`Time limit: ${timeLimit} minutes`)
 
-    // Reset all previous value
-    totalProblem = 0
-    solved = 0
+//     // Reset all previous value
+//     totalProblem = 0
+//     solved = 0
 
-    // Clear the page and show the `progressContainer`
-    initialContainer.style.display = "none"
-    progressContainer.style.display = "block"
+//     // Clear the page and show the `progressContainer`
+//     initialContainer.style.display = "none"
+//     progressContainer.style.display = "block"
 
-    probType = document.getElementById("benfordCheckBox").checked
-    console.log(probType)
-})
+//     probType = document.getElementById("benfordCheckBox").checked
+//     console.log(probType)
+// })
 
-leaveButton.addEventListener("click", showResult)
-backButton.addEventListener("click", () => {
-    // Hide `resultContainer
-    resultContainer.style.display = "none"
-    // Restore the initial page
-    initialContainer.style.display = "block"
-})
+// leaveButton.addEventListener("click", showResult)
+// backButton.addEventListener("click", () => {
+//     // Hide `resultContainer
+//     resultContainer.style.display = "none"
+//     // Restore the initial page
+//     initialContainer.style.display = "block"
+// })
 
 const randInt = () => Math.floor(Math.random()*10)+1;
 const randOper = () => {
@@ -99,3 +100,5 @@ console.log(`Problem:  ${problem}`)
 
 const probTextElement = document.getElementById("problemText");
 probTextElement.innerText = problem
+
+
