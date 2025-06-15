@@ -7,16 +7,16 @@ body {
 }
 
 .page:not(:first-of-type) {
-    /* display: none; */
+    display: none;
 }
 
 #formAlertMsg {
-    /* display: none; */
+    display: none;
     padding-left: 50px;
 }
 
 .respondMsg {
-    /* display: none; */
+    display: none;
 }
 
 .answerContainer {
@@ -26,6 +26,9 @@ body {
 .answerInp {
     display: inline;
     width: 50px;
+}
+.answerInp::placeholder {
+    color: lightgray;
 }
 
 #showTime {
@@ -47,4 +50,19 @@ body {
     position: fixed;
     bottom: 20px;
     left: 20px;
+}
+
+.resultTextContainer {
+    font-size: 1.25rem ;
+    padding: 50px !important;
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    left:0;
+}
+footer ul {
+    display: flex;
+    gap: 2rem;
+    list-style-type: none;
 }

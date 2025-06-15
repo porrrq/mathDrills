@@ -1,4 +1,5 @@
 let totalProblem
+let timeLimit
 let timeUsed
 let benford
 let nx1
@@ -7,6 +8,7 @@ let c1
 let c2
 let solution
 let solved
+let currPage = 'initialPage'
 const benfordProbabilities = [
     0,                // index 0 
     0.301,            // 1

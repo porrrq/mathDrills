@@ -6,7 +6,7 @@ $(function () {
 
     function displayTestingStatistics () {
         // Calculate & Display statistics result
-        $('#timeUsed').text(timeUsed)
+        $('#timeUsed').text(`${Math.floor(timeUsed/60)}m ${timeUsed%60}s`)
         $('#totalProblem').text(totalProblem)
         $('#solved').text(solved)
         $('#miss').text(totalProblem-solved)
@@ -27,9 +27,9 @@ $(function () {
                 $(this).hide()
             }
         })
+        currPage = destination
     }
 
-    
     async function submit () {
         totalProblem += 1
         // Correct
@@ -52,6 +52,21 @@ $(function () {
         $('#c2').val('')
     }
 
+    async function timeControl () {
+        $('#showTime').text(`Time left: ${Math.floor((timeLimit-timeUsed)/60)}m ${(timeLimit-timeUsed)%60}s`)
+        while (timeUsed < timeLimit && currPage == 'drillPage') {
+            // console.log("in loop")
+            await sleep(1000)
+            timeUsed += 1
+            $('#showTime').text(`Time left: ${Math.floor((timeLimit-timeUsed)/60)}m ${(timeLimit-timeUsed)%60}s`)
+        }
+        if (currPage != 'resultPage') {
+            displayTestingStatistics()
+            changePageTo('resultPage')
+        }
+        return
+    }
+
 
     // P(1) 
     $('#startButton').click(() => {
@@ -66,12 +81,17 @@ $(function () {
             // Reset Statitics
             totalProblem = 0
             solved = 0
+            timeUsed = 0
             // Indicate `probType`
             benford = $('#benford').prop("checked")
             // Create a problem
             getDrill()
             // Change page to `#drillContainer`
             changePageTo('drillPage')
+            // Get a timeLimit
+            timeLimit = Number($('#timeLimit').val())*60
+            // Initiate timeControl()
+            timeControl()
         }
         
     })

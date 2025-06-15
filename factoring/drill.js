@@ -34,13 +34,19 @@ $(function () {
         c1 = Number(randOperator() + randInt(1,9).toString())
         c2 = Number(randOperator() + randInt(1,9).toString())
     
-        return ([String(nx1),addSignAndToString(c1),String(nx2),addSignAndToString(c2)])
+        return { 
+            [String(nx1)]: addSignAndToString(c1),
+            [String(nx2)]: addSignAndToString(c2) 
+        }
     }
     
     function addSignAndToString (num) {
         if (num > 0) {
             return `+${num}`
         }
+        else if (num == 0) {
+            return `+`
+        } 
         else {
             return `${num}`
         }
@@ -66,7 +72,7 @@ $(function () {
         })
         // console.log("Answer", answers)
         // console.log(JSON.stringify(answers) === JSON.stringify(solution))
-        return JSON.stringify(answers) === JSON.stringify(solution)
+        return (solution[answers[0]] == answers[1] && solution[answers[2]] == answers[3])
     }
     
     
